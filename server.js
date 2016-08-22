@@ -17,6 +17,7 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
+
     console.log('A new client has connected!');
     socket.on('selfdrawing', function(start, end, strokeColor) {
       socket.broadcast.emit('sendingdrawing', start, end, strokeColor);
